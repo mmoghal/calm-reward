@@ -54,6 +54,6 @@ p {
 }
 
 #start-button {
-	text-decoration: solid;
-	padding: 10px;
+	display: block;
+	margin: auto;
 }
