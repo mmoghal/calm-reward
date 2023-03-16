@@ -21,12 +21,37 @@ var questions = [
         answer: "jQuery",
     },
     {
-        question: "Which of the following is not a comparison operator in JavaScript?",
-        choices: ["===", "==", "<>", "!="],
-        answer: "<>",
+        question: "How would I check which files are staged, unstaged, and untracked using git commands?",
+        choices: ["git commit -m", "git fetch", "git add .", "git status"],
+        answer: "git status",
+    },
+    {
+        question: "When developing a user interface, all are important except...",
+        choices: ["Focusing on building a strong backend", "Writing code that follows accessibility standards", "Making sure that you using a mobile-responsive layout", "Using readable font sizes"],
+        answer: "Focusing on building a strong backend",
+    },
+    {
+        question: "How do you declare a custom property or 'CSS variable'?",
+        choices: ["var root-my-color = green;", ":root { var my-color = green; }", "var my-color = green;", ":root { --my-color: green; }"],
+        answer: ":root { --my-color: green; }",
+    },
+    {
+        question: "Which user-action pseudo-class would you need to add in order to change an element when the mouse is over it?",
+        choices: [":visited", ":activate", ":checked", ":hover"],
+        answer: ":hover",
+    },
+    {
+        question: "How would you create a box with rounded corners using CSS?",
+        choices: ["box-corner: round;", "corner-style: round;", "border-radius: 50px;", "transform: round(corner)"],
+        answer: "border-radius: 50px;",
+    },
+    {
+        question: "What is wireframing?",
+        choices: ["A blueprint of our website's page layout.", "A 3D model of our websites structure made from wires.", "A CSS library that helps in the creation of borders around our boxed elements.", "Wireframing helps us quickly set up our HTML page."],
+        answer: "A blueprint of our website's page layout.",
     },
   ];
-  
+
   // Define global variables
   var currentQuestionIndex = 0;
   var timeLeft = 60;
