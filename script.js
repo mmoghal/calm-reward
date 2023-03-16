@@ -1,29 +1,31 @@
 // Define the quiz questions and answers
-var questions = [{
-  question: "Why do bees like honey ?",
-  choices: ["its sweets", "its tastly", "bad smell", "like it"],
-  answer: "its sweets"
-}, {
-  question: "What do cat loves cat food ?",
-  choices: ["it has fish", "Meat eater", "tasty", "bad smell"],
-  answer: "it has fish"
-}, {
-  question: "Why does dog poop smell bad?",
-  choices: ["they eat fish", "they eat dog food", "they play in the mud", "", ""],
-  answer: "they eat fish"
-}, {
-  question: "how do fish breath under water?",
-  choices: ["They can", "They are ocean animal", "like it", "Rhthey are funny"],
-  answer: "They can"
-}, {
-  question: "what do wales eathow old is Safa?",
-  choices: ["5", "6", "7", "8", "9"],
-  answer: "7"
-}, {
-  question: "What is Safa favorite food?",
-  choices: ["Sushi", "Pizza", "Icecream", "rice"],
-  answer: "Pizza"
-}];
+var questions = [
+  {
+      question: "How do you declare a variable in JavaScript?",
+      choices: ["var", "variable", "v", "let"],
+      answer: "var",
+  },
+  {
+      question: "Which of the following is not a JavaScript data type?",
+      choices: ["string", "boolean", "number", "float"],
+      answer: "float",
+  },
+  {
+      question: "Which of the following is used to iterate through an array in JavaScript?",
+      choices: ["while loop", "if statement", "for loop", "switch statement"],
+      answer: "for loop",
+  },
+  {
+      question: "Which of the following is a JavaScript framework?",
+      choices: ["jQuery", "Ruby on Rails", "Django", "Flask"],
+      answer: "jQuery",
+  },
+  {
+      question: "Which of the following is not a comparison operator in JavaScript?",
+      choices: ["===", "==", "<>", "!="],
+      answer: "<>",
+  },
+];
 
 // Define global variables
 var currentQuestionIndex = 0;
@@ -41,22 +43,24 @@ var feedbackEl = document.getElementById("feedback");
 var scoreEl = document.getElementById("score");
 var initialsInputEl = document.getElementById("initials-input");
 var submitButtonEl = document.getElementById("submit-button");
-var highscoresListEl = document.getElementById("highscores-list");
-var clearButtonEl = document.getElementById("clear-button");
+var gameOverScreenEl = document.getElementById("game-over-container");
+var finalScoreEl = document.getElementById("final-score");
 
 // Function to start the quiz
 function startQuiz() {
   // Hide the start button
   startButtonEl.style.display = "none";
+
   // Start the timer
   timerInterval = setInterval(function () {
-    timeLeft--;
-    timerEl.textContent = "Time: " + timeLeft;
-    if (timeLeft <= 0) {
-      endQuiz();
-    }
+      timeLeft--;
+      timerEl.textContent = "Time: " + timeLeft;
+      if (timeLeft <= 0) {
+          endQuiz();
+      }
   }, 1000);
-  // Show the quiz and question
+
+  // Show the quiz screen and the first question
   quizEl.style.display = "block";
   showQuestion();
 }
@@ -69,73 +73,83 @@ function showQuestion() {
   questionEl.textContent = currentQuestion.question;
   // Clear the choices
   choicesEl.innerHTML = "";
+
   // Loop through the choices and add them to the page
   for (var i = 0; i < currentQuestion.choices.length; i++) {
-    var choiceButton = document.createElement("button");
-    choiceButton.textContent = currentQuestion.choices[i];
-    choicesEl.appendChild(choiceButton);
-    // Add event listener to check answer when choice is clicked
-    choiceButton.addEventListener("click", function () {
-      // Check if the answer is correct
-      if (this.textContent === currentQuestion.answer) {
-        feedbackEl.textContent = "Correct!";
-        score++;
-        scoreEl.textContent = "Score: " + score;
-      } else {
-        feedbackEl.textContent = "Wrong!";
-        timeLeft -= 10;
-        if (timeLeft < 0) {
-          timeLeft = 0;
-        }
-      }
-      // Move to the next question or end the quiz
-      currentQuestionIndex++;
-      if (currentQuestionIndex === questions.length) {
-        endQuiz();
-      } else {
-        showQuestion();
-      }
-    });
+      var choiceButton = document.createElement("button");
+      choiceButton.textContent = currentQuestion.choices[i];
+      choicesEl.appendChild(choiceButton);
+      // Add event listener to check answer when choice is clicked
+      choiceButton.addEventListener("click", function () {
+          // Check if the answer is correct
+          if (this.textContent === currentQuestion.answer) {
+              feedbackEl.textContent = "Correct!";
+              score++;
+              scoreEl.textContent = "Score: " + score;
+          } else {
+              feedbackEl.textContent = "Wrong!";
+              timeLeft -= 10;
+              if (timeLeft <= 0) {
+                  endQuiz();
+              }
+          }
+
+          // Move to the next question or end the quiz
+          currentQuestionIndex++;
+          if (currentQuestionIndex === questions.length) {
+              endQuiz();
+          } else {
+              showQuestion();
+          }
+      });
   }
 }
 
 // Function to end the quiz
 function endQuiz() {
-  // Stop the timer
   clearInterval(timerInterval);
-
-  // Hide the quiz and show the game over screen
-  quizScreenEl.classList.add("hidden");
-  gameOverScreenEl.classList.remove("hidden");
+  feedbackEl.textContent = "";
+  scoreEl.textContent = `Final score: ${score}`;
+  initialsInputEl.style.display = "block";
+  quizEl.style.display = "none";
 
   // Display the final score
-  finalScoreEl.textContent = score;
+  if (finalScoreEl) {
+      finalScoreEl.textContent = ` ${score}`;
+  }
 
-  // Handle submit button click
-  submitButtonEl.addEventListener("click", function (event) {
-    event.preventDefault();
-    var initials = initialsInputEl.value.trim();
-    if (initials !== "") {
-      // Get existing high scores from local storage or create empty array
-      var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-
-      // Add new high score to array
-      highScores.push({
-        initials: initials,
-        score: score
-      });
-
-      // Sort high scores by score in descending order
-      highScores.sort(function (a, b) {
-        return b.score - a.score;
-      });
-
-      // Save high scores to local storage
-      localStorage.setItem("highScores", JSON.stringify(highScores));
-
-      // Redirect to high scores page
-      window.location.href = "highscores.html";
-    }
-  });
+  // Hide the quiz and show the game over screen
+  quizEl.style.display = "none";
+  gameOverScreenEl.style.display = "block";
 }
+
+// Initial submit button
+submitButtonEl.addEventListener("click", function (event) {
+  event.preventDefault();
+  var initials = initialsInputEl.value.trim();
+  if (initials !== "") {
+      // Define finalScoreEl variable
+      var finalScoreEl = document.getElementById("final-score");
+
+      // Check if timeLeft is negative
+      if (timeLeft < 0) {
+          timeLeft = 0;
+      }
+
+      // Show confirmation message
+      var confirmationEl = document.createElement("p");
+      confirmationEl.textContent = "Your score has been submitted!";
+      initialsInputEl.parentNode.insertBefore(confirmationEl, initialsInputEl.nextSibling);
+  }
+});
+
+// Add event listener to restart button to restart quiz
+var restartButtonEl = document.getElementById("restart-button");
+restartButtonEl.addEventListener("click", function () {
+  currentQuestionIndex = 0;
+  timeLeft = 60;
+  score = 0;
+  startQuiz();
+});
+
 startButtonEl.addEventListener("click", startQuiz);
