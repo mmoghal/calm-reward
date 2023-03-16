@@ -29,6 +29,13 @@ This is a JavaScript quiz application that tests the user's knowledge of JavaScr
 
 To use this application, simply click the "Start Quiz" button on the landing page. You will have 60 seconds to complete the quiz, answering all five questions. For each correct answer, you will earn one point. For each incorrect answer, 10 seconds will be deducted from the remaining time. Once the quiz is complete, you will be asked to enter your initials to save your score. You can view the high scores by clicking on the "High Scores" link in the navigation bar.
 
+1. Visit [Deployed Application](https://mmoghal.github.io/calm-reward/) for Web APIs: Code Quiz
+
+2. Application Image
+
+![alt Image of the application](https://github.com/mmoghal/calm-reward/blob/main/Code_Quiz.png)
+
+
 ## Installation
 
 To install this application, simply clone the repository to your local machine and open the index.html file in your web browser.
