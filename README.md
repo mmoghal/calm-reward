@@ -31,7 +31,7 @@ To use this application, simply click the "Start Quiz" button on the landing pag
 
 2. Application Image
 
-![alt Image of the application](https://github.com/mmoghal/calm-reward/blob/main/Code_Quiz.png)
+![alt Image of the application](https://github.com/mmoghal/calm-reward/blob/main/assets/images/quiz.png)
 
 
 ## Installation
