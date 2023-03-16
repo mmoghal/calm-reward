@@ -129,33 +129,33 @@
 	margin-bottom: 20px;
   }
   
-  /* Game over screen styles */
+  /* Quiz over screen styles */
   
-  #game-over-container {
+  #quiz-over-container {
 	display: none;
   }
   
-  #game-over-container h2 {
+  #quiz-over-container h2 {
 	font-size: 2rem;
 	font-weight: bold;
 	margin-bottom: 20px;
   }
   
-  #game-over-container p {
+  #quiz-over-container p {
 	font-size: 1.2rem;
 	font-weight: bold;
 	margin-bottom: 20px;
   }
   
-  #game-over-container form {
+  #quiz-over-container form {
 	margin-bottom: 20px;
   }
   
-  #game-over-container label {
+  #quiz-over-container label {
 	font-weight: bold;
 	margin-right: 10px;
   }
   
-  #game-over-container button {
+  #quiz-over-container button {
 	margin-right: 10px;
   }

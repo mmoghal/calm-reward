@@ -68,7 +68,7 @@ var questions = [
   var scoreEl = document.getElementById("score");
   var initialsInputEl = document.getElementById("initials-input");
   var submitButtonEl = document.getElementById("submit-button");
-  var gameOverScreenEl = document.getElementById("game-over-container");
+  var quizOverScreenEl = document.getElementById("quiz-over-container");
   var finalScoreEl = document.getElementById("final-score");
   
   // Function to start the quiz
@@ -145,9 +145,9 @@ var questions = [
         finalScoreEl.textContent = ` ${score}`;
     }
   
-    // Hide the quiz and show the game over screen
+    // Hide the quiz and show the quiz over screen
     quizEl.style.display = "none";
-    gameOverScreenEl.style.display = "block";
+    quizOverScreenEl.style.display = "block";
   }
   
   // Initial submit button
