@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a code quiz application that tests the user's knowledge of JavaScript and CSS fundamentals. The quiz consists of ten multiple-choice questions, and the user has 60 seconds to complete the quiz. For each correct answer, the user earns one point. For each incorrect answer, 10 seconds are deducted from the remaining time. It includes a timed quiz on CSS and JavaScript fundamentals, stores high scores, and allows users to save their initials and score. The quiz begins when the user clicks the start button, a timer starts, and questions are presented. If the user answers a question incorrectly, time is subtracted from the clock. When all questions are answered or the timer reaches 0, the guiz is over. The user can save their initials and score after the guiz is over. The restart button allows users to start the quiz again.
+This is a code quiz application that tests the user's knowledge of JavaScript and CSS fundamentals. The quiz consists of ten multiple-choice questions, and the user has 60 seconds to complete the quiz. For each correct answer, the user earns one point. For each incorrect answer, 10 seconds are deducted from the remaining time. It includes a timed quiz on CSS and JavaScript fundamentals, and allows users to save their initials and score. The quiz begins when the user clicks the start button, a timer starts, and questions are presented. If the user answers a question incorrectly, time is subtracted from the clock. When all questions are answered or the timer reaches 0, the guiz is over. The user can save their initials and score after the guiz is over. The restart button allows users to start the quiz again.
 
 
 ## Technologies Used
@@ -21,8 +21,6 @@ This is a code quiz application that tests the user's knowledge of JavaScript an
 .   Multiple-choice questions
 
 .   Scorekeeping
-
-.   High score tracking
 
 
 ## Usage
