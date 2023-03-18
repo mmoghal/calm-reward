@@ -1,55 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./assets/css/style.css" />
 
-        <title>Coding Quiz</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
 
-    <body>
-        <!-- Page header -->
-        <header>
-            <h1>Coding Quiz</h1>
-        </header>
+<body>
+    <!-- Page header -->
+    <header>
+        <h1>Coding Quiz</h1>
+    </header>
 
-        <!-- Quiz container -->
-        <div class="quiz-container">
-            <!-- Quiz section -->
-            <section id="quiz">
-                <h2 id="question-number"></h2>
-                <h3 id="question"></h3>
-                <div id="choices"></div>
-                <p id="feedback"></p>
-                <p id="score"></p>
-            </section>
+    <div class="intro-container">
+        <p class="intro-paragraph">Test your knowledge of JavaScript and CSS with this timed multiple-choice quiz. Each
+            incorrect answer results in a time penalty, so be careful!</p>
+    </div>
 
-            <!-- Start quiz button -->
-            <button id="start-button">Start Quiz</button>
 
-            <!-- Timer -->
-            <div id="timer">Time: <span id="time-left"></span></div>
-        </div>
+    <!-- Quiz container -->
+    <div class="quiz-container">
+        <!-- Quiz section -->
+        <section id="quiz">
+            <h2 id="question-number"></h2>
+            <h3 id="question"></h3>
+            <div id="choices"></div>
+            <p id="feedback"></p>
+            <p id="score"></p>
+        </section>
 
-        <!-- Quiz over container -->
-        <div id="quiz-over-container">
-            <!-- Quiz over message and final score -->
-            <h2>Quiz Over!</h2>
-            <p>Your final score is <span id="final-score"></span></p>
+        <!-- Start quiz button -->
+        <button id="start-button">Start Quiz</button>
 
-            <!-- Initials form -->
-            <form id="initials-form">
-                <label for="initials">Enter your initials:</label>
-                <input type="text" id="initials-input" name="initials" maxlength="3" />
-                <button type="submit" id="submit-button">Submit</button>
-            </form>
+        <!-- Timer -->
+        <div id="timer">Time: <span id="time-left"></span></div>
+    </div>
 
-            <!-- Restart quiz button -->
-            <button id="restart-button">Restart Quiz</button>
-        </div>
+    <!-- Quiz over container -->
+    <div id="quiz-over-container">
+        <!-- Quiz over message and final score -->
+        <h2>Quiz Over!</h2>
+        <p>Your final score is <span id="final-score"></span></p>
 
-        <!-- JavaScript -->
-        <script src="./assets/scripts/script.js"></script>
-    </body>
+        <!-- Initials form -->
+        <form id="initials-form">
+            <label for="initials">Enter your initials:</label>
+            <input type="text" id="initials-input" name="initials" maxlength="3">
+            <button type="submit" id="submit-button">Submit</button>
+        </form>
+
+        <!-- Restart quiz button -->
+        <button id="restart-button">Restart Quiz</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="./assets/scripts/script.js"></script>
+</body>
+
 </html>

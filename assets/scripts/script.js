@@ -52,6 +52,9 @@ var questions = [
     },
   ];
 
+ 
+
+
   // Define global variables
   var currentQuestionIndex = 0;
   var timeLeft = 60;
@@ -70,9 +73,11 @@ var questions = [
   var submitButtonEl = document.getElementById("submit-button");
   var quizOverScreenEl = document.getElementById("quiz-over-container");
   var finalScoreEl = document.getElementById("final-score");
+
   
   // Function to start the quiz
   function startQuiz() {
+    document.getElementById('quiz-over-container').style.display = 'none';
     // Hide the start button
     startButtonEl.style.display = "none";
   
@@ -173,10 +178,13 @@ var questions = [
   // Add event listener to restart button to restart quiz
   var restartButtonEl = document.getElementById("restart-button");
   restartButtonEl.addEventListener("click", function () {
+    initialsInputEl.value = "";
+    quizOverScreenEl.style.display = "none";
     currentQuestionIndex = 0;
     timeLeft = 60;
     score = 0;
     startQuiz();
+
   });
   
   startButtonEl.addEventListener("click", startQuiz);
